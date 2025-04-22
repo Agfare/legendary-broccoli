@@ -2,9 +2,7 @@
 name = "legendary-broccoli"
 version = "1.1.0"
 description = "A simple script checking for integers in XLS files before converting them to PO"
-authors = [
-  { name = "Alexander Markevitch", email = "alexander.markevitch@gmail.com" }
-]
+authors = [{ name = "Alexander Markevitch", email = "alexander.markevitch@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [
