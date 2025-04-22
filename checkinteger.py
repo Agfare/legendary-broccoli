@@ -1,8 +1,21 @@
-import pandas as pd
-import os
-from tkinter import Tk, filedialog
+"""
+This module allows the user to select an Excel file and scans all its sheets
+for integer values and strings that represent digits.
+"""
+
+import os  # Standard library imports
+from tkinter import Tk, filedialog  # GUI imports
+
+import pandas as pd  # Third-party imports
+
 
 def find_int_strings_all_sheets(file_path):
+    """
+    Scans all sheets in the given Excel file for integers and digit-strings.
+
+    Parameters:
+    file_path (str): The path to the Excel file to scan.
+    """
     xls = pd.read_excel(file_path, sheet_name=None)
 
     print(f"\nScanning all sheets in: {file_path}")
@@ -26,12 +39,17 @@ def find_int_strings_all_sheets(file_path):
     print("\n" + "=" * 60)
     print("Scan complete.")
 
+
 def select_excel_file():
-    # Hide the main Tkinter window
+    """
+    Opens a file dialog for the user to select an Excel file.
+
+    Returns:
+    str: The path to the selected Excel file, or an empty string if cancelled.
+    """
     root = Tk()
     root.withdraw()
 
-    # Ask the user to select an Excel file
     file_path = filedialog.askopenfilename(
         title="Select your Excel file",
         filetypes=[("Excel files", "*.xlsx *.xls")]
@@ -39,7 +57,11 @@ def select_excel_file():
 
     return file_path
 
+
 def main():
+    """
+    Main entry point: prompts the user for an Excel file and scans it.
+    """
     print("Please choose your Excel file from the file dialog...")
     file_path = select_excel_file()
 
@@ -53,8 +75,11 @@ def main():
 
     try:
         find_int_strings_all_sheets(file_path)
-    except Exception as e:
-        print(f"⚠️ An error occurred: {e}")
+    except pd.errors.ExcelFileError as e:
+        print(f"⚠️ Failed to read Excel file: {e}")
+    except Exception as e:  # Still broad, but fallback
+        print(f"⚠️ An unexpected error occurred: {e}")
+
 
 if __name__ == "__main__":
     main()
