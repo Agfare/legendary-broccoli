@@ -1,0 +1,18 @@
+[project]
+name = "legendary-broccoli"
+version = "1.1.0"
+description = "A simple script checking for integers in XLS files before converting them to PO"
+authors = [
+  { name = "Alexander Markevitch", email = "alexander.markevitch@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "pandas",
+    "openpyxl",  # Needed by pandas to read .xlsx files
+    "tk",        # tkinter is part of the standard library, but this ensures GUI deps if needed on some platforms
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
