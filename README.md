@@ -7,3 +7,5 @@ Once we spent a couple of hours trying to find faulty strings in an Excel file o
 2. Run ```python checkinteger.py```
 3. Choose the file in a dialog window
 4. Enjoy
+
+[![Upload Python Package](https://github.com/Agfare/legendary-broccoli/actions/workflows/python-publish.yml/badge.svg)](https://github.com/Agfare/legendary-broccoli/actions/workflows/python-publish.yml)
